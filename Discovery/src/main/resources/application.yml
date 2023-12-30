@@ -1,0 +1,27 @@
+#---------------------------------------------------------------
+#       Server Configuration
+#---------------------------------------------------------------
+server:
+  port: 8090
+
+#---------------------------------------------------------------
+#       Eureka Configuration
+#---------------------------------------------------------------
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#---------------------------------------------------------------
+#       Config-Server Configuration
+#---------------------------------------------------------------
+config-server:
+  port: 9999
+
+spring:
+  config:
+    import: optional:configserver:http://${eureka.instance.hostname}:${config-server.port}

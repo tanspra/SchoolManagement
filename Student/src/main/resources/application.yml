@@ -1,0 +1,38 @@
+#---------------------------------------------------------------
+#       Spring Configuration
+#---------------------------------------------------------------
+config-server:
+  port: 9999
+spring:
+  application:
+    name: Student
+  config:
+    import: optional:configserver:http://${eureka.instance.hostname}:${config-server.port}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/students
+    username: username
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#---------------------------------------------------------------
+#       Server Configuration
+#---------------------------------------------------------------
+server:
+  port: 8091
+
+#---------------------------------------------------------------
+#       Eureka Configuration
+#---------------------------------------------------------------
+eureka:
+  instance:
+    hostname: localhost
+    port: 8090
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
