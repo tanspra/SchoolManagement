@@ -16,6 +16,15 @@
       "response": []
     },
     {
+      "name": "getSchoolsWithStudents",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{schoolAPI}}/with-students/1"
+      },
+      "response": []
+    },
+    {
       "name": "addSchool",
       "request": {
         "method": "POST",

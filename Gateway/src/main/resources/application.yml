@@ -1,0 +1,37 @@
+#---------------------------------------------------------------
+#       Application Configuration
+#---------------------------------------------------------------
+config-server:
+  port: 9999
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: "Gateway"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: student
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/v1/student/**
+        - id: school
+          uri: http://localhost:8092
+          predicates:
+            - Path=/api/v1/school/**
+  config:
+    import: optional:configserver:http://localhost:${config-server.port}
+
+
+#---------------------------------------------------------------
+#       Eureka Configuration
+#---------------------------------------------------------------
+eureka:
+  client:
+    register-with-eureka: false
