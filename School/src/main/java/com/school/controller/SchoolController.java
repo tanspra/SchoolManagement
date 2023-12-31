@@ -23,8 +23,14 @@ public class SchoolController {
         service.saveSchool(school);
     }
 
+
     @GetMapping
     public ResponseEntity<List<School>> findAllSchool() {
         return ResponseEntity.ok(service.findAllSchool());
+    }
+
+    @GetMapping("/with-students/{school-id}")
+    public ResponseEntity<List<School>> findSchoolWithStudents(@PathVariable("school-id") Integer schoolId) {
+        return ResponseEntity.ok(service.findSchoolWithStudents(schoolId));
     }
 }
