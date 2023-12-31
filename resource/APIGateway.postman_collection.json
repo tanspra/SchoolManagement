@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_postman_id": "4f8cdde7-d6f6-4596-a742-c8c3b0be48bb",
+    "name": "APIGateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "32063643"
+  },
+  "item": [
+    {
+      "name": "getSchools",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{APIGateway}}/api/v1/school"
+      },
+      "response": []
+    },
+    {
+      "name": "getSchoolsWithStudents",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{APIGateway}}/api/v1/school/with-students/1"
+      },
+      "response": []
+    },
+    {
+      "name": "addSchool",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"School 1\",\r\n    \"email\" : \"school1@test.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{APIGateway}}/api/v1/school"
+      },
+      "response": []
+    },
+    {
+      "name": "addStudent",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 18,\r\n    \"firstName\" : \"Pk\",\r\n    \"lastName\" : \"suman\",\r\n    \"email\" : \"school1@test.com\",\r\n    \"schoolId\" : 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{APIGateway}}/api/v1/student"
+      },
+      "response": []
+    },
+    {
+      "name": "getStudent",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{APIGateway}}/api/v1/student"
+      },
+      "response": []
+    }
+  ]
+}
