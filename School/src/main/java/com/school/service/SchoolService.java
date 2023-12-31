@@ -1,20 +1,20 @@
 package com.school.service;
 
+import com.school.client.StudentClient;
 import com.school.entity.School;
 import com.school.repository.SchoolRepository;
 import com.school.response.FullSchoolResponse;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SchoolService {
 
-    @Autowired
     private final SchoolRepository schoolRepository;
+    private final StudentClient studentClient;
 
     public void saveSchool(School school) {
         schoolRepository.save(school);
@@ -33,7 +33,11 @@ public class SchoolService {
                         .email("NOT_FOUND")
                         .build());
 
-        var student = null; //find all student from student microservice who is in same school
-        return null;
+        var student = studentClient.getAllStudentWithSchoolId(schoolId); //find all student from student microservice who is in same school
+        return FullSchoolResponse.builder()
+                .name(school.getName())
+                .email(school.getEmail())
+                .studentList(student)
+                .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.school.controller;
 
 import com.school.entity.School;
+import com.school.response.FullSchoolResponse;
 import com.school.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class SchoolController {
     }
 
     @GetMapping("/with-students/{school-id}")
-    public ResponseEntity<List<School>> findSchoolWithStudents(@PathVariable("school-id") Integer schoolId) {
+    public ResponseEntity<FullSchoolResponse> findSchoolWithStudents(@PathVariable("school-id") Integer schoolId) {
         return ResponseEntity.ok(service.findSchoolWithStudents(schoolId));
     }
 }

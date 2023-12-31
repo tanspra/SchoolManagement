@@ -2,17 +2,15 @@ package com.student.service;
 
 import com.student.entity.Student;
 import com.student.repository.StudentRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StudentService {
 
-    @Autowired
     private final StudentRepository studentRepository;
 
     public void saveStudent(Student student) {
@@ -24,6 +22,6 @@ public class StudentService {
     }
 
     public List<Student> findAllStudentWithSchoolId(Integer schoolId) {
-        return studentRepository.findAllStudentWithSchoolId(schoolId);
+        return studentRepository.findAllBySchoolId(schoolId);
     }
 }

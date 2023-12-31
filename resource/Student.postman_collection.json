@@ -1,0 +1,37 @@
+{
+  "info": {
+    "_postman_id": "f6253335-c419-4bb1-a675-c061f82078e3",
+    "name": "Student",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "32063643"
+  },
+  "item": [
+    {
+      "name": "addStudent",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\" : 15,\r\n    \"firstName\" : \"Pk\",\r\n    \"lastName\" : \"suman\",\r\n    \"email\" : \"school1@test.com\",\r\n    \"schoolId\" : 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{studentAPI}}"
+      },
+      "response": []
+    },
+    {
+      "name": "getStudent",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{studentAPI}}"
+      },
+      "response": []
+    }
+  ]
+}
