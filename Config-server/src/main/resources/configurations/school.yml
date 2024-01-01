@@ -1,0 +1,41 @@
+#---------------------------------------------------------------
+#       Spring Configuration
+#---------------------------------------------------------------
+spring:
+  application:
+    name: school
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/schools
+    username: admin
+    password: admin@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#---------------------------------------------------------------
+#       Server Configuration
+#---------------------------------------------------------------
+server:
+  port: 8092
+
+#---------------------------------------------------------------
+#       Eureka Configuration
+#---------------------------------------------------------------
+eureka:
+  instance:
+    hostname: localhost
+    port: 8089
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+#---------------------------------------------------------------
+#       Application Configuration
+#---------------------------------------------------------------
+application:
+  config:
+    student-url: http://localhost:8091/api/v1/student
